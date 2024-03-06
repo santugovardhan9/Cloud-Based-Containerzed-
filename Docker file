@@ -1,4 +1,0 @@
-# Use an appropriate base image. For example,  nginx for serving static files.
-FROM nginx:alpine
-# Copy the HTML file into the nginx image
-COPY index.html /usr/share/nginx/html/index.html 
