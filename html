@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple UI App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Project - 23  </title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-           margin: 0;
-            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-           text-align: center;
+            background-color: #367588;
         }
         h1 {
-            color: #333;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hi, Welcome to My Simple UI App!</h1>
+
+    <h1> Welcome to My Home </h1>
+
+    <div class="button-container">
+        <button onclick="window.location.href='https://www.python.org/'">Go to Python.org</button>
+        <button onclick="window.location.href='https://aws.amazon.com/'">Go to AWS</button>
+        <button onclick="downloadFile()">Download Manual File</button>
     </div>
+
+    <script>
+        function downloadFile() {
+            const text = "This is a sample text file.";
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'sample.txt';
+            link.click();
+            URL.revokeObjectURL(link.href); // Clean up the URL object
+        }
+    </script>
+
 </body>
 </html>
